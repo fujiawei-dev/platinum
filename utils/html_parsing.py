@@ -3,7 +3,7 @@
 from requests_html import HTML
 
 
-def html_parsing(fp=r'platinum/commands.py'):
+def html_parsing(fp=r'utils/commands.py'):
     with open(r'html/List of Chromium Command Line Switches « Peter Beverloo.html', encoding='utf-8') as f:
         doc = f.read()
 
