@@ -20,15 +20,16 @@
 
 '''
 python setup.py sdist
-pip install dist/
+pip install dist/platinum-0.1.1.tar.gz
 python setup.py bdist_wheel
 pip install twine
 twine upload dist/*
 '''
 
 import os.path
-from setuptools import setup
 
+from platinum import __version__
+from setuptools import setup
 
 # Import the README and use it as the long-description.
 cwd = os.path.abspath(os.path.dirname(__file__))
@@ -39,7 +40,7 @@ with open(os.path.join(cwd, 'README.md'), encoding='utf-8') as f:
 setup(
     name='platinum',
     packages=['platinum'],
-    version='0.1.0',
+    version=__version__,
     license='Apache 2.0',
     author='White Turing',
     author_email='fujiawei@stu.hznu.edu.cn',
@@ -52,8 +53,8 @@ setup(
         'Intended Audience :: Developers',
         'License :: OSI Approved :: Apache Software License',
         'Operating System :: Microsoft :: Windows',
-        'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 2',
+        'Programming Language :: Python :: 3',
         'Programming Language :: Python :: Implementation :: CPython',
         'Programming Language :: Python :: Implementation :: PyPy',
         'Topic :: Software Development :: Testing',
