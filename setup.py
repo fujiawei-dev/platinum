@@ -44,7 +44,7 @@ setup(
     license='Apache 2.0',
     author='White Turing',
     author_email='fujiawei@stu.hznu.edu.cn',
-    description='An Android automation framework.',
+    description='Frequently used commands mappings.',
     long_description=long_description,
     long_description_content_type='text/markdown',
     url='https://github.com/fjwCode/platinum',
