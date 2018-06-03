@@ -1147,9 +1147,9 @@ TESTING_FIXED_HTTPS_PORT = 'testing-fixed-https-port'   #
 TETHER_STUB = 'tether-stub'   # Overrides Tether with stub service. Provide integer arguments for the number of fake networks desired, e.g. 'tether-stub=2'.
 TIMEOUT = 'timeout'   # Issues a stop after the specified number of milliseconds.  This cancels all navigation and causes the DOMContentLoaded event to fire.
 TLS1 = 'tls1'   # These values aren't switches, but rather the values that kSSLVersionMax and kSSLVersionMin can have.
-TLS1.1 = 'tls1.1'   # 
-TLS1.2 = 'tls1.2'   # 
-TLS1.3 = 'tls1.3'   # 
+TLS1_1 = 'tls1.1'   # 
+TLS1_2 = 'tls1.2'   # 
+TLS1_3 = 'tls1.3'   # 
 TLS13_VARIANT = 'tls13-variant'   # Specifies the enabled TLS 1.3 variant ("disabled", "draft", "experiment").
 TOP_CHROME_MD = 'top-chrome-md'   # Enables top Chrome material design elements.
 TOP_CONTROLS_HIDE_THRESHOLD = 'top-controls-hide-threshold'   # Percentage of the browser controls need to be hidden before they will auto hide.
