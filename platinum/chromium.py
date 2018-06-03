@@ -1,3 +1,20 @@
+# Licensed to the White Turing under one or more
+# contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The SFC licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+
 '''List of Chromium Command Line Switches.'''
 
 
@@ -1159,6 +1176,9 @@ class Chromium(object):
     TETHER_STUB = 'tether-stub'   # Overrides Tether with stub service. Provide integer arguments for the number of fake networks desired, e.g. 'tether-stub=2'.
     TIMEOUT = 'timeout'   # Issues a stop after the specified number of milliseconds.  This cancels all navigation and causes the DOMContentLoaded event to fire.
     TLS1 = 'tls1'   # These values aren't switches, but rather the values that kSSLVersionMax and kSSLVersionMin can have.
+    TLS1_1 = 'tls1.1'   # 
+    TLS1_2 = 'tls1.2'   # 
+    TLS1_3 = 'tls1.3'   # 
     TLS13_VARIANT = 'tls13-variant'   # Specifies the enabled TLS 1.3 variant ("disabled", "draft", "experiment").
     TOP_CHROME_MD = 'top-chrome-md'   # Enables top Chrome material design elements.
     TOP_CONTROLS_HIDE_THRESHOLD = 'top-controls-hide-threshold'   # Percentage of the browser controls need to be hidden before they will auto hide.
