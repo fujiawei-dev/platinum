@@ -24,7 +24,7 @@ class Chromium(object):
     There are lots of command lines which can be used with the Google Chrome browser.
     Some change behavior of features, others are for debugging or experimenting.
     This page lists the available switches including their conditions and descriptions.
-    Last update occurred on 2018-05-04 from `https://peter.sh/experiments/chromium-command-line-switches/`.
+    Last update occurred on 2018-06-08 from `https://peter.sh/experiments/chromium-command-line-switches/`.
     '''
 
     ACCEPT_RESOURCE_PROVIDER = 'accept-resource-provider'   # Flag indicating that a resource provider must be set up to provide cast receiver with resources. Apps cannot start until provided resources. This flag implies --alsa-check-close-timeout=0.
