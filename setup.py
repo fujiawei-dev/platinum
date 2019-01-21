@@ -20,7 +20,7 @@
 
 '''
 python setup.py sdist
-pip install dist/platinum-0.1.3.tar.gz
+pip install dist/platinum-1.0.0.tar.gz
 python setup.py bdist_wheel
 pip install twine
 twine upload dist/*
@@ -44,11 +44,18 @@ setup(
     license='Apache 2.0',
     author='White Turing',
     author_email='fujiawei@stu.hznu.edu.cn',
-    description='Frequently used commands mappings.',
+    description='Frequently used google chrome commands mappings. A User-Agent generator. All for automation.',
     long_description=long_description,
     long_description_content_type='text/markdown',
     url='https://github.com/fjwCode/platinum',
-    keywords=['chromium', 'automation', 'testing'],
+    keywords=['chromium', 'automation', 'testing', 'user-agent'],
+    include_package_data=True,
+    install_requires=['six'],
+    entry_points={
+        'console_scripts': [
+            'gua = platinum.console:script_gua',
+        ],
+    },
     classifiers=[
         'Intended Audience :: Developers',
         'License :: OSI Approved :: Apache Software License',
