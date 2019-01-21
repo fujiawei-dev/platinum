@@ -1,4 +1,6 @@
-# Platinum - Very Important Update[![License](https://img.shields.io/badge/license-Apache_2-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0) [![PyPI version](https://img.shields.io/pypi/v/platinum.svg)](https://pypi.org/project/platinum/) [![Wheel](https://img.shields.io/pypi/wheel/platinum.svg)](https://pypi.org/project/platinum/)
+# Platinum - Very Important Update
+[![License](https://img.shields.io/badge/license-Apache_2-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0) [![PyPI version](https://img.shields.io/pypi/v/platinum.svg)](https://pypi.org/project/platinum/) [![Wheel](https://img.shields.io/pypi/wheel/platinum.svg)](https://pypi.org/project/platinum/)
+
 
 > Chromium - Frequently used google chrome commands mappings.
 
@@ -15,9 +17,15 @@ from platinum import Chromium
 from selenium import webdriver
 
 options = webdriver.ChromeOptions()
-# options.add_argument(Chromium.HEADLESS) # Run in headless mode, i.e., without a UI or display server dependencies.
-options.add_argument(Chromium.DISABLE_INFOBARS) # Prevent infobars from appearing.
-options.add_argument(Chromium.START_MAXIMIZED) # Starts the browser maximized, regardless of any previous settings.
+# Run in headless mode, i.e., without a UI or display server dependencies.
+# options.add_argument(Chromium.HEADLESS)
+
+# Prevent infobars from appearing.
+options.add_argument(Chromium.DISABLE_INFOBARS)
+
+# Starts the browser maximized, regardless of any previous settings.
+options.add_argument(Chromium.START_MAXIMIZED)
+
 chrome = webdriver.Chrome(options=options)
 ```
 
