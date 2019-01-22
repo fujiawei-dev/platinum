@@ -139,8 +139,7 @@ def test_gua_script_options():
 def test_device_type_option():
     for _ in range(50):
         agent = generate_user_agent(device_type='smartphone')
-        assert 'Android' in agent
-        assert 'Firefox' in agent or 'Chrome' in agent
+        assert 'Android' in agent or 'iPhone' in agent
 
 
 def test_device_type_option_invalid():
