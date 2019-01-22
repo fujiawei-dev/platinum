@@ -40,7 +40,7 @@ Functions:
 * generate_user_agent: generates User-Agent HTTP header
 
 Support:
-* os: win, linux, mac, android
+* os: win, linux, mac, android, ios
 * device: desktop, smartphone
 * navigator: chrome, firefox, ie, edge
 
