@@ -3,7 +3,7 @@ import os.path
 
 DEVICE_TYPE_OS = {
     'desktop': ('win', 'mac', 'linux'),
-    'smartphone': ('android',),
+    'smartphone': ('android', 'ios'),
 }
 
 OS_DEVICE_TYPE = {
@@ -11,6 +11,7 @@ OS_DEVICE_TYPE = {
     'linux': ('desktop',),
     'mac': ('desktop',),
     'android': ('smartphone',),
+    'ios': ('smartphone',),
 }
 
 DEVICE_TYPE_NAVIGATOR = {
@@ -23,6 +24,21 @@ NAVIGATOR_DEVICE_TYPE = {
     'edge': ('desktop',),
     'chrome': ('desktop', 'smartphone'),
     'firefox': ('desktop', 'smartphone'),
+}
+
+OS_NAVIGATOR = {
+    'win': ('chrome', 'firefox', 'ie', 'edge'),
+    'mac': ('firefox', 'chrome'),
+    'linux': ('chrome', 'firefox'),
+    'android': ('firefox', 'chrome'),
+    'ios': ('chrome'),
+}
+
+NAVIGATOR_OS = {
+    'chrome': ('win', 'linux', 'mac', 'android', 'ios'),
+    'firefox': ('win', 'linux', 'mac', 'android'),
+    'ie': ('win',),
+    'edge': ('win',),
 }
 
 OS_PLATFORM = {
@@ -69,6 +85,7 @@ OS_PLATFORM = {
         'Android 8.1',  # 2017-12-5
         'Android 9',  # 2018-8-6
     ),
+    'ios': (),
 }
 
 # https://en.wikipedia.org/wiki/MacOS#Release_history
@@ -100,20 +117,6 @@ OS_CPU = {
         'armv7l',  # 32bit
         'armv8l',  # 64bit
     ),
-}
-
-OS_NAVIGATOR = {
-    'win': ('chrome', 'firefox', 'ie', 'edge'),
-    'mac': ('firefox', 'chrome'),
-    'linux': ('chrome', 'firefox'),
-    'android': ('firefox', 'chrome'),
-}
-
-NAVIGATOR_OS = {
-    'chrome': ('win', 'linux', 'mac', 'android'),
-    'firefox': ('win', 'linux', 'mac', 'android'),
-    'ie': ('win',),
-    'edge': ('win',),
 }
 
 # https://en.wikipedia.org/wiki/History_of_Firefox
@@ -197,17 +200,17 @@ USER_AGENT_TEMPLATE = {
         ' (KHTML, like Gecko)'
         ' Chrome/{app[build_version]} Safari/537.36'
     ),
-    'chrome_smartphone': (
+    'chrome_android': (
         'Mozilla/5.0'
         ' ({system[ua_platform]}) AppleWebKit/537.36'
         ' (KHTML, like Gecko)'
         ' Chrome/{app[build_version]} Mobile Safari/537.36'
     ),
-    'chrome_tablet': (
+    'chrome_ios': (
         'Mozilla/5.0'
-        ' ({system[ua_platform]}) AppleWebKit/537.36'
+        ' (iPhone; CPU iPhone OS {system[platform_version]} like Mac OS X) AppleWebKit/604.1.38'
         ' (KHTML, like Gecko)'
-        ' Chrome/{app[build_version]} Safari/537.36'
+        ' Version/{system[version]} Mobile/{system[version_code]} Safari/604.1'
     ),
     'ie_less_11': (
         'Mozilla/5.0'
@@ -229,7 +232,9 @@ USER_AGENT_TEMPLATE = {
 }
 
 PACKAGE_DIR = os.path.dirname(os.path.realpath(__file__))
-SMARTPHONE_DEV = json.load(
-    open(os.path.join(PACKAGE_DIR, 'data\\smartphone_dev.json')))
-SMARTPHONE_BUILD = json.load(
-    open(os.path.join(PACKAGE_DIR, 'data\\smartphone_build.json')))
+ANDROID_DEV = json.load(
+    open(os.path.join(PACKAGE_DIR, 'data\\android_dev.json')))
+ANDROID_BUILD = json.load(
+    open(os.path.join(PACKAGE_DIR, 'data\\android_build.json')))
+IOS_VERSION = json.load(
+    open(os.path.join(PACKAGE_DIR, 'data\\ios.json')))
