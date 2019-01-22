@@ -20,7 +20,7 @@
 
 '''
 python setup.py sdist
-pip install dist/platinum-1.0.0.tar.gz
+pip install dist/platinum-1.1.0.tar.gz
 python setup.py bdist_wheel
 pip install twine
 twine upload dist/*
@@ -59,12 +59,17 @@ setup(
     classifiers=[
         'Intended Audience :: Developers',
         'License :: OSI Approved :: Apache Software License',
-        'Operating System :: Microsoft :: Windows',
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 3',
+        'Operating System :: OS Independent',
+        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3.3',
+        'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: Implementation :: CPython',
         'Programming Language :: Python :: Implementation :: PyPy',
         'Topic :: Software Development :: Testing',
         'Topic :: Software Development :: Libraries',
+        'Topic :: Internet :: WWW/HTTP',
     ],
 )
