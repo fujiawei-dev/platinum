@@ -111,8 +111,8 @@ def build_system_components(device_type, os_id, navigator_id):
         if navigator_id == 'firefox':
             ua_platform = '%s; Mobile' % platform_version
         elif navigator_id == 'chrome':
-            dev_id = choice(SMARTPHONE_DEV)
-            bulid_id = choice(SMARTPHONE_BUILD)
+            dev_id = choice(ANDROID_DEV)
+            bulid_id = choice(ANDROID_BUILD)
             device_id = '%s Build/%s' % (dev_id, bulid_id)
             ua_platform = 'Linux; %s; %s' % (platform_version, device_id)
         oscpu = 'Linux %s' % choice(OS_CPU['android'])
@@ -121,6 +121,13 @@ def build_system_components(device_type, os_id, navigator_id):
             'ua_platform': ua_platform,
             'platform': oscpu,
             'oscpu': oscpu,
+        }
+    elif os_id == 'ios':
+        platform_version = choice(list(IOS_VERSION))
+        res = {
+            'platform_version': platform_version.replace('.', '_'),
+            'version': platform_version.split('.')[0] + '.0',
+            'version_code': IOS_VERSION[platform_version],
         }
     return res
 
@@ -144,6 +151,7 @@ def build_app_components(os_id, navigator_id):
         }
     elif navigator_id == 'chrome':
         res = {
+            'os_id': os_id,
             'build_version': get_chrome_build(),
         }
     elif navigator_id == 'ie':
@@ -237,11 +245,12 @@ def pick_config_ids(device_type, os, navigator):
 def choose_ua_template(device_type, navigator_id, app):
     tpl_name = navigator_id
     if navigator_id == 'ie':
-        tpl_name = ('ie_11' if app['build_version'] == 'MSIE 11.0'
-                    else 'ie_less_11')
+        tpl_name = 'ie_11' if app['build_version'] == 'MSIE 11.0' else 'ie_less_11'
     if navigator_id == 'chrome':
-        if device_type == 'smartphone':
-            tpl_name = 'chrome_smartphone'
+        if app['os_id'] == 'android':
+            tpl_name = 'chrome_android'
+        elif app['os_id'] == 'ios':
+            tpl_name = 'chrome_ios'
     return USER_AGENT_TEMPLATE[tpl_name]
 
 
