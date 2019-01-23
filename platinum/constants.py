@@ -16,7 +16,7 @@ OS_DEVICE_TYPE = {
 
 DEVICE_TYPE_NAVIGATOR = {
     'desktop': ('chrome', 'firefox', 'ie', 'edge'),
-    'smartphone': ('firefox', 'chrome'),
+    'smartphone': ('firefox', 'chrome', 'safari'),
 }
 
 NAVIGATOR_DEVICE_TYPE = {
@@ -24,6 +24,7 @@ NAVIGATOR_DEVICE_TYPE = {
     'edge': ('desktop',),
     'chrome': ('desktop', 'smartphone'),
     'firefox': ('desktop', 'smartphone'),
+    'safari': ('smartphone',)
 }
 
 OS_NAVIGATOR = {
@@ -31,14 +32,15 @@ OS_NAVIGATOR = {
     'mac': ('firefox', 'chrome'),
     'linux': ('chrome', 'firefox'),
     'android': ('firefox', 'chrome'),
-    'ios': ('chrome'),
+    'ios': ('chrome', 'firefox', 'safari'),
 }
 
 NAVIGATOR_OS = {
     'chrome': ('win', 'linux', 'mac', 'android', 'ios'),
-    'firefox': ('win', 'linux', 'mac', 'android'),
+    'firefox': ('win', 'linux', 'mac', 'android', 'ios'),
     'ie': ('win',),
     'edge': ('win',),
+    'safari': ('ios',),
 }
 
 OS_PLATFORM = {
@@ -110,9 +112,6 @@ OS_CPU = {
         'x86_64',  # 64bit
         'i686 on x86_64',  # 32bit process on 64bit system
     ),
-    'mac': (
-        '',
-    ),
     'android': (
         'armv7l',  # 32bit
         'armv8l',  # 64bit
@@ -170,6 +169,21 @@ CHROME_BUILD = (
     (71, 3578, 3626),  # 2018-12-04
 )
 
+WEBKIT_VERSION = (
+    '601.4.4',
+    '601.5.17',
+    '601.6.17',
+    '601.7.1',
+    '601.7.8',
+    '602.1.50',
+    '602.2.14',
+    '602.3.12',
+    '602.4.8',
+    '603.1.30',
+    '603.2.4',
+    '603.3.8',
+)
+
 IE_VERSION = (
     # (numeric ver, string ver, trident ver) # release year
     (8, 'MSIE 8.0', '4.0'),  # 2009
@@ -206,11 +220,25 @@ USER_AGENT_TEMPLATE = {
         ' (KHTML, like Gecko)'
         ' Chrome/{app[build_version]} Mobile Safari/537.36'
     ),
+    'safari_ios': (
+        'Mozilla/5.0'
+        ' (iPhone; CPU iPhone OS {system[platform_version]} like Mac OS X) AppleWebKit/{app[build_version]}'
+        ' (KHTML, like Gecko)'
+        ' Version/{system[version]} Mobile/{system[version_code]} Safari/{app[safari_version]}'
+    ),
+    # https://developer.chrome.com/multidevice/user-agent#chrome_for_ios_user_agent
     'chrome_ios': (
         'Mozilla/5.0'
-        ' (iPhone; CPU iPhone OS {system[platform_version]} like Mac OS X) AppleWebKit/604.1.38'
+        ' (iPhone; CPU iPhone OS {system[platform_version]} like Mac OS X) AppleWebKit/601.4.4'
         ' (KHTML, like Gecko)'
-        ' Version/{system[version]} Mobile/{system[version_code]} Safari/604.1'
+        ' CriOS/{app[build_version]} Mobile/{system[version_code]} Safari/601.4'
+    ),
+    # https://cloud.tencent.com/developer/section/1190015
+    'firefox_ios': (
+        'Mozilla/5.0'
+        ' (iPhone; CPU iPhone OS {system[platform_version]} like Mac OS X) AppleWebKit/601.4.4'
+        ' (KHTML, like Gecko)'
+        ' FxiOS/{app[build_version]} Mobile/{system[version_code]} Safari/601.4'
     ),
     'ie_less_11': (
         'Mozilla/5.0'
