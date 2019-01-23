@@ -39,6 +39,10 @@ def get_edge_build():
     return choice(EDGE_VERSION)
 
 
+def get_webkit_build():
+    return choice(WEBKIT_VERSION)
+
+
 def fix_chrome_mac_platform(platform):
     """
     Chrome on Mac OS adds minor version number and uses underscores instead
@@ -95,7 +99,6 @@ def build_system_components(device_type, os_id, navigator_id):
             'oscpu': 'Linux %s' % cpu,
         }
     elif os_id == 'mac':
-        cpu = choice(OS_CPU['mac'])
         platform_version = choice(OS_PLATFORM['mac'])
         platform = platform_version
         if navigator_id == 'chrome':
@@ -146,6 +149,7 @@ def build_app_components(os_id, navigator_id):
         else:
             geckotrail = build_version
         res = {
+            'os_id': os_id,
             'build_version': build_version,
             'geckotrail': geckotrail,
         }
@@ -163,6 +167,13 @@ def build_app_components(os_id, navigator_id):
     elif navigator_id == 'edge':
         res = {
             'build_version': get_edge_build(),
+        }
+    elif navigator_id == 'safari':
+        build_version = get_webkit_build()
+        res = {
+            'os_id': os_id,
+            'build_version': build_version,
+            'safari_version': build_version[:5],
         }
     return res
     
@@ -246,30 +257,16 @@ def choose_ua_template(device_type, navigator_id, app):
     tpl_name = navigator_id
     if navigator_id == 'ie':
         tpl_name = 'ie_11' if app['build_version'] == 'MSIE 11.0' else 'ie_less_11'
-    if navigator_id == 'chrome':
+    elif navigator_id == 'chrome':
         if app['os_id'] == 'android':
             tpl_name = 'chrome_android'
         elif app['os_id'] == 'ios':
             tpl_name = 'chrome_ios'
+    elif navigator_id == 'firefox' and app['os_id'] == 'ios':
+        tpl_name = 'firefox_ios'
+    elif navigator_id == 'safari':
+        tpl_name = 'safari_ios'
     return USER_AGENT_TEMPLATE[tpl_name]
-
-
-def build_navigator_app_version(os_id, navigator_id,
-                                platform_version, user_agent):
-    if navigator_id in ('chrome', 'ie', 'edge'):
-        assert user_agent.startswith('Mozilla/')
-        app_version = user_agent.split('Mozilla/', 1)[1]
-    elif navigator_id == 'firefox':
-        if os_id == 'android':
-            app_version = '5.0 (%s)' % platform_version
-        else:
-            os_token = {
-                'win': 'Windows',
-                'mac': 'Macintosh',
-                'linux': 'X11',
-            }[os_id]
-            app_version = '5.0 (%s)' % os_token
-    return app_version
 
 
 def generate_user_agent(os=None, navigator=None, device_type=None):
