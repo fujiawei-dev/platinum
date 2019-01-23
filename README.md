@@ -44,6 +44,12 @@ Support:
 * device: desktop, smartphone
 * navigator: chrome, firefox, ie, edge, safari
 
+> **Windows**: Chrome, Firefox, IE, Edge  
+> **Linux**: Chrome, Firefox  
+> **Mac**: Chrome, Firefox, Safari  
+> **Android**: Chrome, Firefox  
+> **iOS**: Chrome, Firefox, Safari
+
 
 ## Usage Example
 ```python
@@ -58,6 +64,8 @@ Support:
 'Mozilla/5.0 (Linux; Android 8.0; OPPO R11 Plus Build/OPR4.170623.006) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3191.41 Mobile Safari/537.36'
 >>> generate_user_agent(os='ios')
 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_3 like Mac OS X) AppleWebKit/601.4.4 (KHTML, like Gecko) FxiOS/62.0 Mobile/15E218 Safari/601.4'
+>>> generate_user_agent(navigator='safari', os='mac')
+'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_13_0; zh-cn) AppleWebKit/602.3.12 (KHTML, like Gecko) Version/11.1.2 Safari/602.3.12'
 ```
 
 
