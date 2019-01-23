@@ -20,7 +20,7 @@
 
 '''
 python setup.py sdist
-pip install dist/platinum-1.1.0.tar.gz
+pip install dist/platinum-1.3.0.tar.gz
 python setup.py bdist_wheel
 pip install twine
 twine upload dist/*
