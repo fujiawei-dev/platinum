@@ -1,4 +1,4 @@
-# Platinum - Very Important Update
+# Platinum
 [![License](https://img.shields.io/badge/license-Apache_2-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0) [![PyPI version](https://img.shields.io/pypi/v/platinum.svg)](https://pypi.org/project/platinum/) [![Wheel](https://img.shields.io/pypi/wheel/platinum.svg)](https://pypi.org/project/platinum/)
 
 
@@ -42,7 +42,7 @@ Functions:
 Support:
 * os: win, linux, mac, android, ios
 * device: desktop, smartphone
-* navigator: chrome, firefox, ie, edge
+* navigator: chrome, firefox, ie, edge, safari
 
 
 ## Usage Example
@@ -56,6 +56,8 @@ Support:
 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.140 Safari/537.36 Edge/18.17763'
 >>> generate_user_agent(device_type='smartphone')
 'Mozilla/5.0 (Linux; Android 8.0; OPPO R11 Plus Build/OPR4.170623.006) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3191.41 Mobile Safari/537.36'
+>>> generate_user_agent(os='ios')
+'Mozilla/5.0 (iPhone; CPU iPhone OS 11_3 like Mac OS X) AppleWebKit/601.4.4 (KHTML, like Gecko) FxiOS/62.0 Mobile/15E218 Safari/601.4'
 ```
 
 
@@ -66,6 +68,12 @@ Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chro
 
 $ gua -n chrome
 Mozilla/5.0 (X11; Linux i686) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3489.10 Safari/537.36
+
+$ gua -o android
+Mozilla/5.0 (Linux; Android 8.1; Huawei P20 Lite Build/OPR3.170623.008) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3297.48 Mobile Safari/537.36
+
+$ gua -n safari -o ios
+Mozilla/5.0 (iPhone; CPU iPhone OS 9_3_3 like Mac OS X) AppleWebKit/602.2.14 (KHTML, like Gecko) Version/9.0 Mobile/13G34 Safari/602.2
 ```
 
 
@@ -74,3 +82,6 @@ Mozilla/5.0 (X11; Linux i686) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0
 ```shell
 pip install -U platinum
 ```
+
+
+## [Change Log](https://github.com/fjwCode/platinum/blob/master/CHANGELOG.md)
