@@ -1,5 +1,9 @@
 # Change Log of user_agent Library
 
+## [1.3.0] - 2019-01-23
+### Added
+- Add Safari navigators for MAC OS
+
 ## [1.2.0] - 2019-01-23
 ### Added
 - Add Firefox and Safari navigators for iPhone OS
@@ -16,6 +20,6 @@
 - The `gua` script for generating user-agent data in console.
 - **Support**: Desktop, smartphone.
 > **Windows**: Chrome, Firefox, IE, Edge  
-> **Linux**: CHrome, Firefox  
+> **Linux**: Chrome, Firefox  
 > **Mac**: Chrome, Firefox  
 > **Android**: Chrome, Firefox
