@@ -1,9 +1,14 @@
 # Change Log of user_agent Library
 
+## [1.2.0] - 2019-01-23
+### Added
+- Add Firefox and Safari navigators for iPhone OS
+- Delete redundant code
+
 ## [1.1.0] - 2019-01-22
 ### Added
 - New OS: iOS
-- Add Chrome for iPhone OS
+- Add Google Chrome for iPhone OS
 
 ## [1.0.0] - 2019-01-21
 ### Very Important Update
