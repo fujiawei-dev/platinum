@@ -18,4 +18,4 @@
 from .chromium import Chromium
 from .user_agent import generate_user_agent, InvalidOption
 
-__version__ = '1.3.0'
+__version__ = '1.4.0'
