@@ -15,8 +15,8 @@ OS_DEVICE_TYPE = {
 }
 
 DEVICE_TYPE_NAVIGATOR = {
-    'desktop': ('chrome', 'firefox', 'ie', 'edge', 'safari'),
-    'smartphone': ('firefox', 'chrome', 'safari'),
+    'desktop': ('chrome', 'firefox', 'ie', 'edge', 'safari', 'opera'),
+    'smartphone': ('firefox', 'chrome', 'safari', 'opera'),
 }
 
 NAVIGATOR_DEVICE_TYPE = {
@@ -24,23 +24,25 @@ NAVIGATOR_DEVICE_TYPE = {
     'edge': ('desktop',),
     'chrome': ('desktop', 'smartphone'),
     'firefox': ('desktop', 'smartphone'),
-    'safari': ('smartphone', 'desktop')
+    'safari': ('desktop', 'smartphone'),
+    'opera': ('desktop', 'smartphone'),
 }
 
 OS_NAVIGATOR = {
-    'win': ('chrome', 'firefox', 'ie', 'edge'),
-    'mac': ('firefox', 'chrome', 'safari'),
-    'linux': ('chrome', 'firefox'),
-    'android': ('firefox', 'chrome'),
-    'ios': ('chrome', 'firefox', 'safari'),
+    'win': ('chrome', 'firefox', 'ie', 'edge', 'opera'),
+    'mac': ('chrome', 'firefox', 'safari', 'opera'),
+    'linux': ('chrome', 'firefox', 'opera'),
+    'android': ('chrome', 'firefox', 'opera'),
+    'ios': ('chrome', 'firefox', 'safari', 'opera'),
 }
 
 NAVIGATOR_OS = {
     'chrome': ('win', 'linux', 'mac', 'android', 'ios'),
     'firefox': ('win', 'linux', 'mac', 'android', 'ios'),
-    'ie': ('win',),
-    'edge': ('win',),
+    'opera': ('win', 'linux', 'mac', 'android', 'ios'),
     'safari': ('ios', 'mac'),
+    'edge': ('win',),
+    'ie': ('win',),
 }
 
 OS_PLATFORM = {
@@ -65,6 +67,7 @@ OS_PLATFORM = {
     'linux': (
         'X11; Linux',
         'X11; Ubuntu; Linux',
+        'X11; Debian; Linux',
     ),
     # https://en.wikipedia.org/wiki/Android_(operating_system)
     'android': (
@@ -87,7 +90,7 @@ OS_PLATFORM = {
         'Android 8.1',  # 2017-12-5
         'Android 9',  # 2018-8-6
     ),
-    'ios': (),
+    'ios': None,
 }
 
 # https://en.wikipedia.org/wiki/MacOS#Release_history
@@ -268,7 +271,28 @@ USER_AGENT_TEMPLATE = {
         ' (KHTML, like Gecko)'
         ' Chrome/64.0.3282.140 Safari/537.36'
         ' Edge/{app[build_version]}'
-    )
+    ),
+    # https://deviceatlas.com/blog/mobile-browser-user-agent-strings
+    'opera': (
+        'Mozilla/5.0'
+        ' ({system[ua_platform]}) AppleWebKit/537.36'
+        ' (KHTML, like Gecko)'
+        ' Chrome/64.0.3282.140 Safari/537.36'
+        ' OPR/{app[build_version]}'
+    ),
+    'opera_android': (
+        'Mozilla/5.0'
+        ' ({system[ua_platform]}) AppleWebKit/537.36'
+        ' (KHTML, like Gecko)'
+        ' Chrome/64.0.3282.140 Mobile Safari/537.36'
+        ' OPR/{app[build_version]}'
+    ),
+    'opera_ios': (
+        'Mozilla/5.0'
+        ' (iPhone; CPU iPhone OS {system[ua_platform]} like Mac OS X) AppleWebKit/601.4.4'
+        ' (KHTML, like Gecko)'
+        ' OPiOS/{app[build_version]} Mobile/{system[platform_ver]} Safari/601.4'
+    ),
 }
 
 PACKAGE_DIR = os.path.dirname(os.path.realpath(__file__))
@@ -278,3 +302,7 @@ ANDROID_BUILD = json.load(
     open(os.path.join(PACKAGE_DIR, 'data\\android_build.json')))
 IOS_VERSION = json.load(
     open(os.path.join(PACKAGE_DIR, 'data\\ios.json')))
+    
+# http://ftp.opera.com/pub/opera/desktop/
+OPERA_BUILD = json.load(
+    open(os.path.join(PACKAGE_DIR, 'data\\opera_build.json')))
