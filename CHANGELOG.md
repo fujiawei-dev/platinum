@@ -1,5 +1,9 @@
 # Change Log of user_agent Library
 
+## [1.4.0] - 2019-01-24
+### Added
+- Add Opera navigators for Windows, Linux, MAC OS, Android and iPhone OS
+
 ## [1.3.0] - 2019-01-23
 ### Added
 - Add Safari navigators for MAC OS
