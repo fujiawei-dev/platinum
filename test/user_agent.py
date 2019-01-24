@@ -55,6 +55,9 @@ def test_navigator_option():
         agent = generate_user_agent(navigator='edge')
         assert 'edge' in agent.lower()
 
+        agent = generate_user_agent(navigator='opera')
+        assert 'opr' in agent.lower() or 'opios' in agent.lower()
+
 
 def test_invalid_navigator_option():
     with pytest.raises(InvalidOption):
