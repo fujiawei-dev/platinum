@@ -42,13 +42,13 @@ Functions:
 Support:
 * os: win, linux, mac, android, ios
 * device: desktop, smartphone
-* navigator: chrome, firefox, ie, edge, safari
+* navigator: chrome, firefox, ie, edge, safari, opera
 
-> **Windows**: Chrome, Firefox, IE, Edge  
-> **Linux**: Chrome, Firefox  
-> **Mac**: Chrome, Firefox, Safari  
-> **Android**: Chrome, Firefox  
-> **iOS**: Chrome, Firefox, Safari
+> **Windows**: Chrome, Firefox, IE, Edge, Opera  
+> **Linux**: Chrome, Firefox, Opera  
+> **Mac**: Chrome, Firefox, Safari, Opera  
+> **Android**: Chrome, Firefox, Opera  
+> **iOS**: Chrome, Firefox, Safari, Opera
 
 
 ## Usage Example
